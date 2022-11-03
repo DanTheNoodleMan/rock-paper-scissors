@@ -1,2 +1,2 @@
 # rock-paper-scissors
-A first iteration of rock paper scissors played from console. For now the html and css files will remain empty.
+A second iteration of rock paper scissors played in the browser with UI. Using event listeners and other javascript elements I've learned so far.
