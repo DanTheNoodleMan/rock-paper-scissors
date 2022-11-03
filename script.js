@@ -3,7 +3,7 @@ let possible = ['Rock', 'Paper', 'Scissors'];
 
 function getComputerChoice() {
     let choice = possible[Math.floor(Math.random() * possible.length)];
-    return choice;
+    return choice.toLowerCase();
 }
 
 
@@ -29,12 +29,11 @@ function playRound(playerSel, computerSel) {
     } 
 }
 
-
-
-function game(){
-    for (let i = 0; i < 5; i++){
-        let playerSel = prompt("Make your move!").toLowerCase();
-        let computerSel = getComputerChoice().toLowerCase();
-        console.log(playRound(playerSel, computerSel));
-    }
-}
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach( button => button.addEventListener('click', function(e) {
+    console.log(this.id);
+    let computerSel = getComputerChoice();
+    console.log(computerSel);
+    console.log(playRound(this.id, computerSel));
+    })
+    )
