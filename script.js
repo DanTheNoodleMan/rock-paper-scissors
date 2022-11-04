@@ -3,9 +3,10 @@ let possible = ['Rock', 'Paper', 'Scissors'];
 
 let playerScore = 0;
 let computerScore = 0;
-const playerCount = document.querySelector('.player-score');
-const computerCount = document.querySelector('.computer-score');
+const scores = document.querySelector('.scores');
 const message = document.querySelector('.message');
+
+const reset = document.querySelector('.reset');
 
 
 function getComputerChoice() {
@@ -17,57 +18,54 @@ function getComputerChoice() {
 
 function playRound(playerSel, computerSel) {
     if(playerSel == computerSel){
-        computerCount.textContent = "The Almighty AI: " + computerScore;
-        playerCount.textContent = "You (lowly human): " + playerScore;
-        message.textContent = "It's a tie, you're mediocre";
+        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerText = "It's a tie, you're mediocre";
 
     } else if (playerSel == 'rock'  &&	computerSel == 'paper'){
         computerScore++;
-        computerCount.textContent = "The Almighty AI: " + computerScore;
-        playerCount.textContent = "You (lowly human): " + playerScore;
-        message.textContent = "LOSER: Your rock got folded by paper, ironic huh?"
+        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerText = "LOSER: Your rock got folded by paper, ironic huh?"
         
     } else if (playerSel == 'rock'  &&	computerSel == 'scissors'){
         playerScore++;
-        computerCount.textContent = "The Almighty AI: " + computerScore;
-        playerCount.textContent = "You (lowly human): " + playerScore;
-        message.textContent = "WINNER: Your rock crushed sharp scissors"
+        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerText = "WINNER: Your rock crushed sharp scissors"
 
     } else if (playerSel == 'paper'  &&	computerSel == 'rock'){
         playerScore++;
-        computerCount.textContent = "The Almighty AI: " + computerScore;
-        playerCount.textContent = "You (lowly human): " + playerScore;
-        message.textContent = "WINNER: You folded a rock with paper, irony is a funny thing"
+        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerText = "WINNER: You folded a rock with paper, irony is a funny thing"
 
     } else if (playerSel == 'paper'  &&	computerSel == 'scissors'){
         computerScore++;
-        computerCount.textContent = "The Almighty AI: " + computerScore;
-        playerCount.textContent = "You (lowly human): " + playerScore;
-        message.textContent = "LOSER: Chop"
+        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerText = "LOSER: Chop"
 
     } else if (playerSel == 'scissors'  &&	computerSel == 'rock'){
         computerScore++;
-        computerCount.textContent = "The Almighty AI: " + computerScore;
-        playerCount.textContent = "You (lowly human): " + playerScore;
-        message.textContent = "LOSER: Don't bring scissors to a rock fight"
+        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerText = "LOSER: Don't bring scissors to a rock fight"
 
     } else if (playerSel == 'scissors'  &&	computerSel == 'paper'){
         playerScore++;
-        computerCount.textContent = "The Almighty AI: " + computerScore;
-        playerCount.textContent = "You (lowly human): " + playerScore;
-        message.textContent = "WINNER: Chop (but good)"
+        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerText = "WINNER: Chop (but good)"
     } 
 }
 
 function gameEnd(playerScore, computerScore){
     if(playerScore == 5){
-        message.textContent = "THE ULTIMATE WINNER: the lowly human...";
+        message.innerText = "THE ULTIMATE WINNER: the lowly human...";
         return;
     }
     if(computerScore == 5){
-        message.textContent = "THE ULTIMATE WINNER: The Almighty AI, did you expect otherwise?";
+        message.innerText = "THE ULTIMATE WINNER: The Almighty AI, did you expect otherwise?";
         return;
     }
+}
+
+function resetGame(){
+    window.location.reload();
 }
 
 const buttons = document.querySelectorAll('.btn');
