@@ -14,4 +14,4 @@ The first project on TOP101 combining **HTML, CSS and Javascript**. You can acce
 * Deeper understanding of **event listeners** and other JS functionalities such as **arrow functions, selecting elements, manipulating classes...)**
 * Practice **HTML/CSS** design to make a visually appealing UI
 * Use of **debugger** with **event listener breakpoints** and other features to ease debugging
-
+* Purpose of *branching* in GitHub and how to *merge* branches
