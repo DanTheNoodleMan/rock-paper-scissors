@@ -24,32 +24,32 @@ function playRound(playerSel, computerSel) {
     } else if (playerSel == 'rock'  &&	computerSel == 'paper'){
         computerScore++;
         scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerHTML = "<span style='color:red;'>LOSER:</span> Your rock got folded by paper, ironic huh?"
+        message.innerHTML = "<span style='color:red;'>LOSER:</span> Your shooting star got wished upon, loser"
         
     } else if (playerSel == 'rock'  &&	computerSel == 'scissors'){
         playerScore++;
         scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerHTML = "<span style='color:green;'>WINNER:</span> Your rock crushed sharp scissors"
+        message.innerHTML = "<span style='color:green;'>WINNER:</span> Your shooting star crushed the UFO"
 
     } else if (playerSel == 'paper'  &&	computerSel == 'rock'){
         playerScore++;
         scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerHTML = "<span style='color:green;'>WINNER:</span> You folded a rock with paper, irony is a funny thing"
+        message.innerHTML = "<span style='color:green;'>WINNER:</span> You wished upon a star, and it came true!"
 
     } else if (playerSel == 'paper'  &&	computerSel == 'scissors'){
         computerScore++;
         scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerHTML = "<span style='color:red;'>LOSER:</span> Chop"
+        message.innerHTML = "<span style='color:red;'>LOSER:</span> You got abducted by aliens!"
 
     } else if (playerSel == 'scissors'  &&	computerSel == 'rock'){
         computerScore++;
         scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerHTML = "<span style='color:red;'>LOSER:</span> Don't bring scissors to a rock fight"
+        message.innerHTML = "<span style='color:red;'>LOSER:</span> This asteroid belt is a no UFO fly-zone for a reason..."
 
     } else if (playerSel == 'scissors'  &&	computerSel == 'paper'){
         playerScore++;
         scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerHTML = "<span style='color:green;'>WINNER:</span> Chop (but good)"
+        message.innerHTML = "<span style='color:green;'>WINNER:</span> You abducted an astronaut!"
     } 
 }
 
