@@ -18,48 +18,56 @@ function getComputerChoice() {
 
 function playRound(playerSel, computerSel) {
     if(playerSel == computerSel){
-        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerText = "It's a tie, you're mediocre";
+        scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerHTML = "It's a tie, you're mediocre";
 
     } else if (playerSel == 'rock'  &&	computerSel == 'paper'){
         computerScore++;
-        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerText = "LOSER: Your rock got folded by paper, ironic huh?"
+        scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerHTML = "<span style='color:red;'>LOSER:</span> Your rock got folded by paper, ironic huh?"
         
     } else if (playerSel == 'rock'  &&	computerSel == 'scissors'){
         playerScore++;
-        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerText = "WINNER: Your rock crushed sharp scissors"
+        scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerHTML = "<span style='color:green;'>WINNER:</span> Your rock crushed sharp scissors"
 
     } else if (playerSel == 'paper'  &&	computerSel == 'rock'){
         playerScore++;
-        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerText = "WINNER: You folded a rock with paper, irony is a funny thing"
+        scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerHTML = "<span style='color:green;'>WINNER:</span> You folded a rock with paper, irony is a funny thing"
 
     } else if (playerSel == 'paper'  &&	computerSel == 'scissors'){
         computerScore++;
-        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerText = "LOSER: Chop"
+        scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerHTML = "<span style='color:red;'>LOSER:</span> Chop"
 
     } else if (playerSel == 'scissors'  &&	computerSel == 'rock'){
         computerScore++;
-        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerText = "LOSER: Don't bring scissors to a rock fight"
+        scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerHTML = "<span style='color:red;'>LOSER:</span> Don't bring scissors to a rock fight"
 
     } else if (playerSel == 'scissors'  &&	computerSel == 'paper'){
         playerScore++;
-        scores.innerText = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
-        message.innerText = "WINNER: Chop (but good)"
+        scores.innerHTML = `You (the lowly human): ${playerScore} VS. The Almighty AI: ${computerScore}`;
+        message.innerHTML = "<span style='color:green;'>WINNER:</span> Chop (but good)"
     } 
 }
 
 function gameEnd(playerScore, computerScore){
-    if(playerScore == 5){
-        message.innerText = "THE ULTIMATE WINNER: the lowly human...";
-        return;
-    }
-    if(computerScore == 5){
-        message.innerText = "THE ULTIMATE WINNER: The Almighty AI, did you expect otherwise?";
+    if(playerScore == 5 || computerScore == 5){
+        reset.classList.toggle('disabled');
+        if(playerScore == 5){
+            message.innerText = "THE ULTIMATE WINNER: the lowly human...";
+            message.style.transform = 'scale(1.5)';
+        }
+        else if(computerScore == 5){
+            message.innerText = "THE ULTIMATE WINNER: The Almighty AI, did you expect otherwise?";
+        }
+        buttons.forEach(button => {
+            button.setAttribute('disabled', '');
+            button.classList.add('disabled-btn');
+            button.style.filter = "opacity(0.8)";
+        })
         return;
     }
 }
@@ -74,7 +82,7 @@ buttons.forEach( button => button.addEventListener('click', function(e) {
     let computerSel = getComputerChoice();
     //console.log(computerSel);
     playRound(this.id, computerSel);
-    
+    gameEnd(playerScore, computerScore);
     
     })
     )
